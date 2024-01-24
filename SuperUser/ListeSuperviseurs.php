@@ -248,19 +248,19 @@
                   </thead>
                   <tbody>
                     <?php
-                    $req=$cnx->prepare("select* from agents order by NomAgent");
+                    $req=$cnx->prepare("select* from agent order by Nom_Agent");
                     $req->execute();
                     while($resultAg=$req->fetch()){
                         ?>
                   <tr>
-                    <td><img src="../images/photos_agents/<?php echo $resultAg['PhotoAgent'] ?>" width="55" height="55"></td>
-                    <td><?php echo $resultAg['MatriculeAgent'] ?></td>
-                    <td><?php echo $resultAg['PrenomAgent'] ?></td>
-                    <td><?php echo $resultAg['NomAgent'] ?></td>
-                    <td><?php echo $resultAg['TelephoneAgent'] ?></td>
-                    <td><?php echo $resultAg['EmailAgent'] ?></td>
-                    <td><a href="detailsAgents.php?idagent=<?php echo $resultAg['IdAgent'] ?>"><button type="button" class="btn btn-block btn-outline-primary btn-xs"><strong>Actions</strong></button></a></td>
-                    <td><strong><a href="Superviseurs.php?idsup=<?php echo $resultAg['IdAgent'] ?>"><button type="button" class="btn btn-block btn-outline-primary btn-xs"><strong>Affichage</strong></button></a></strong></td>
+                    <!-- <td><img src="../images/photos_agents/<?php echo $resultAg['PhotoAgent'] ?>" width="55" height="55"></td> -->
+                    <td><?php echo $resultAg['Matricule'] ?></td>
+                    <td><?php echo $resultAg['Prenom_Agent'] ?></td>
+                    <td><?php echo $resultAg['Nom_Agent'] ?></td>
+                    <td><?php echo $resultAg['telephone'] ?></td>
+                    <td><?php echo $resultAg['Email_Agent'] ?></td>
+                    <td><a href="detailsAgents.php?idagent=<?php echo $resultAg['id_Agent'] ?>"><button type="button" class="btn btn-block btn-outline-primary btn-xs"><strong>Actions</strong></button></a></td>
+                    <td><strong><a href="Superviseurs.php?idsup=<?php echo $resultAg['id_Agent'] ?>"><button type="button" class="btn btn-block btn-outline-primary btn-xs"><strong>Affichage</strong></button></a></strong></td>
                     </tr>
                     <?php
                       }
@@ -307,36 +307,36 @@
                       <?php
                     }
                     if ($_POST['matrech']!='' && $_POST['prenrech']=='' && $_POST['nomrech']==''){
-                      $req=$cnx->prepare("select* from agents where MatriculeAgent like '%".$_POST['matrech']."%' order by NomAgent");
+                      $req=$cnx->prepare("select* from agent where MatriculeAgent like '%".$_POST['matrech']."%' order by Nom_Agent");
                     }
                     if ($_POST['matrech']!='' && $_POST['prenrech']!='' && $_POST['nomrech']==''){
-                      $req=$cnx->prepare("select* from agents where MatriculeAgent like '%".$_POST['matrech']."%' and PrenomAgent like '%".$_POST['prenrech']."%'  order by NomAgent");
+                      $req=$cnx->prepare("select* from agent where MatriculeAgent like '%".$_POST['matrech']."%' and PrenomAgent like '%".$_POST['prenrech']."%'  order by Nom_Agent");
                     }
                     if ($_POST['matrech']!='' && $_POST['prenrech']!='' && $_POST['nomrech']!=''){
-                      $req=$cnx->prepare("select* from agents where MatriculeAgent like '%".$_POST['matrech']."%' and PrenomAgent like '%".$_POST['prenrech']."%' and NomAgent like '%".$_POST['nomrech']."%'   order by NomAgent");
+                      $req=$cnx->prepare("select* from agent where MatriculeAgent like '%".$_POST['matrech']."%' and PrenomAgent like '%".$_POST['prenrech']."%' and NomAgent like '%".$_POST['nomrech']."%'   order by Nom_Agent");
                     }
                     if ($_POST['matrech']=='' && $_POST['prenrech']!='' && $_POST['nomrech']==''){
-                      $req=$cnx->prepare("select* from agents where PrenomAgent like '%".$_POST['prenrech']."%' order by NomAgent");
+                      $req=$cnx->prepare("select* from agent where PrenomAgent like '%".$_POST['prenrech']."%' order by Nom_Agent");
                     }
                     if ($_POST['matrech']=='' && $_POST['prenrech']=='' && $_POST['nomrech']!=''){
-                      $req=$cnx->prepare("select* from agents where NomAgent like '%".$_POST['nomrech']."%' order by NomAgent");
+                      $req=$cnx->prepare("select* from agent where NomAgent like '%".$_POST['nomrech']."%' order by Nom_Agent");
                     }
                     if ($_POST['matrech']=='' && $_POST['prenrech']!='' && $_POST['nomrech']!=''){
-                      $req=$cnx->prepare("select* from agents where PrenomAgent like '%".$_POST['prenrech']."%' and NomAgent like '%".$_POST['nomrech']."%'  order by NomAgent");
+                      $req=$cnx->prepare("select* from agent where PrenomAgent like '%".$_POST['prenrech']."%' and Nom_Agent like '%".$_POST['nomrech']."%'  order by Nom_Agent");
                     }
                   
                     $req->execute();
                     while($resultAg=$req->fetch()){
                         ?>
                   <tr>
-                    <td><img src="../images/photos_agents/<?php echo $resultAg['PhotoAgent'] ?>" width="55" height="55"></td>
-                    <td><?php echo $resultAg['MatriculeAgent'] ?></td>
-                    <td><?php echo $resultAg['PrenomAgent'] ?></td>
-                    <td><?php echo $resultAg['NomAgent'] ?></td>
-                    <td><?php echo $resultAg['TelephoneAgent'] ?></td>
-                    <td><?php echo $resultAg['EmailAgent'] ?></td>
-                    <td><a href="detailsAgents.php?idagent=<?php echo $resultAg['IdAgent'] ?>"><button type="button" class="btn btn-block btn-outline-primary btn-xs"><strong>Actions</strong></button></a></td>
-                    <td><strong><a href="Superviseurs.php?idsup=<?php echo $resultAg['IdAgent'] ?>"><button type="button" class="btn btn-block btn-outline-primary btn-xs"><strong>Affichage</strong></button></a></strong></td>
+                    <!-- <td><img src="../images/photos_agents/<?php echo $resultAg['PhotoAgent'] ?>" width="55" height="55"></td> -->
+                    <td><?php echo $resultAg['Matricule'] ?></td>
+                    <td><?php echo $resultAg['Prenom_Agent'] ?></td>
+                    <td><?php echo $resultAg['Nom_Agent'] ?></td>
+                    <td><?php echo $resultAg['telephone'] ?></td>
+                    <td><?php echo $resultAg['Email_Agent'] ?></td>
+                    <td><a href="detailsAgents.php?idagent=<?php echo $resultAg['Id_Agent'] ?>"><button type="button" class="btn btn-block btn-outline-primary btn-xs"><strong>Actions</strong></button></a></td>
+                    <td><strong><a href="Superviseurs.php?idsup=<?php echo $resultAg['Id_Agent'] ?>"><button type="button" class="btn btn-block btn-outline-primary btn-xs"><strong>Affichage</strong></button></a></strong></td>
                   </tr>
                     <?php
                       }
